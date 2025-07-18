@@ -5,7 +5,9 @@
 package main
 
 import (
+	"bytes"
 	"context"
+	"io"
 	"os"
 	"time"
 
@@ -46,10 +48,17 @@ func (a *application) Run(
 		u.PartSize = 5 * 1024 * 1024
 		u.Concurrency = 1
 	})
-	_, err := uploader.Upload(ctx, &s3.PutObjectInput{
+
+	var buf bytes.Buffer
+	_, err := io.Copy(&buf, os.Stdin)
+	if err != nil {
+		return errors.Wrap(ctx, err, "failed to read from stdin")
+	}
+
+	_, err = uploader.Upload(ctx, &s3.PutObjectInput{
 		Bucket: aws.String(a.BucketName),
 		Key:    aws.String(a.KeyName),
-		Body:   os.Stdin,
+		Body:   bytes.NewReader(buf.Bytes()),
 	})
 	if err != nil {
 		return errors.Wrap(ctx, err, "create bucket failed")
