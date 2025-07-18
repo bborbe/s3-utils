@@ -5,7 +5,6 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"os"
 	"time"
@@ -50,7 +49,7 @@ func (a *application) Run(
 	_, err := uploader.Upload(ctx, &s3.PutObjectInput{
 		Bucket: aws.String(a.BucketName),
 		Key:    aws.String(a.KeyName),
-		Body:   bytes.NewBufferString("hello world"),
+		Body:   os.Stdin,
 	})
 	if err != nil {
 		return errors.Wrap(ctx, err, "create bucket failed")
