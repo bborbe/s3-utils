@@ -8,6 +8,12 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.2
+
+- Add typed S3 credentials (URL, AccessKey, SecretKey) with String() methods
+- Change package name from `s3` to `s3utils` to avoid conflicts with AWS SDK
+- Update all commands to use new typed credentials
+
 ## v0.0.1
 
 - Initial Version

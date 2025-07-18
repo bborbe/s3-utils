@@ -16,7 +16,7 @@ import (
 	"github.com/bborbe/service"
 	"github.com/golang/glog"
 
-	libs3 "github.com/bborbe/s3-utils"
+	"github.com/bborbe/s3-utils"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func (a *application) Run(
 	ctx context.Context,
 	sentryClient libsentry.Client,
 ) error {
-	s3Client := libs3.CreateS3Client(a.S3Url, a.S3AccessKey, a.S3SecretKey)
+	s3Client := s3utils.CreateS3Client(s3utils.URL(a.S3Url), s3utils.AccessKey(a.S3AccessKey), s3utils.SecretKey(a.S3SecretKey))
 
 	glog.V(2).Infof("list all objects started")
 	buckets, err := s3Client.ListBuckets(ctx, &s3.ListBucketsInput{})
