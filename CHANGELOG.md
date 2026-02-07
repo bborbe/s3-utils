@@ -8,6 +8,13 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.6
+
+- Update Go to 1.25.7
+- Update AWS SDK v2 dependencies
+- Update testing dependencies (ginkgo, gomega)
+- Add .update-logs/ and .mcp-* to .gitignore
+
 ## v0.0.5
 
 - Update Go to 1.25.5
