@@ -25,7 +25,7 @@ func CreateS3Client(
 			UsePathStyle:     true,
 			EndpointResolver: s3.EndpointResolverFromURL(s3Url.String()),
 			EndpointOptions: s3.EndpointResolverOptions{
-				DisableHTTPS: !strings.HasPrefix("https://", s3Url.String()),
+				DisableHTTPS: !strings.HasPrefix(s3Url.String(), "https://"),
 			},
 			Credentials: aws.NewCredentialsCache(
 				credentials.NewStaticCredentialsProvider(
