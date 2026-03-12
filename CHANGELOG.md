@@ -8,6 +8,11 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.8
+
+- Split s3-client-creator.go into one file per type (URL, AccessKey, SecretKey, CreateS3Client)
+- Add Ginkgo tests for URL, AccessKey, SecretKey, and CreateS3Client
+
 ## v0.0.7
 
 - Update Go from 1.25.5 to 1.26.1

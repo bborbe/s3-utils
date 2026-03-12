@@ -15,24 +15,6 @@ import (
 	"github.com/golang/glog"
 )
 
-type URL string
-
-func (u URL) String() string {
-	return string(u)
-}
-
-type AccessKey string
-
-func (a AccessKey) String() string {
-	return string(a)
-}
-
-type SecretKey string
-
-func (s SecretKey) String() string {
-	return string(s)
-}
-
 func CreateS3Client(
 	s3Url URL,
 	s3AccessKey AccessKey,
