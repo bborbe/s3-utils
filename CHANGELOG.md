@@ -8,6 +8,10 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.10
+
+- Improve README with installation, usage, CLI command docs, and examples
+
 ## v0.0.9
 
 - Fix DisableHTTPS detection: swap strings.HasPrefix args so HTTPS URLs correctly enable TLS
