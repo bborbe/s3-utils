@@ -8,6 +8,14 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.7
+
+- Update Go from 1.25.5 to 1.26.1
+- Update AWS SDK v2 to v1.41.1
+- Update bborbe/* dependencies
+- Update golang.org/x/* packages
+- Remove tracked upload binary
+
 ## v0.0.6
 
 - Update Go to 1.25.7

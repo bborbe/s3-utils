@@ -4,3 +4,7 @@
 /coverage.out
 /.update-logs/
 /.mcp-*
+/upload
+/download
+/list-buckets
+/list-objects
