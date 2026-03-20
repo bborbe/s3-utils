@@ -8,3 +8,6 @@
 /download
 /list-buckets
 /list-objects
+/.dark-factory.lock
+/prompts/log
+/specs/log
