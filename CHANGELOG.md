@@ -8,6 +8,12 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.13
+
+- chore: add golangci-lint v2 with `.golangci.yml` config and modernize Makefile with `.PHONY`, `lint`, `osv-scanner`, `gosec`, `trivy` targets
+- chore: update `tools.go` to add golangci-lint/v2, gosec, osv-scanner, golines, go-modtool and remove deprecated golint
+- fix: upgrade `modelcontextprotocol/go-sdk` to v1.4.1 to resolve two high-severity CVEs
+
 ## v0.0.12
 
 - chore: verified project health — all tests pass, linting succeeds, precommit exits 0
