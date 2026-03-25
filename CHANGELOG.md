@@ -8,6 +8,10 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.14
+
+- fix: install trivy in CI workflow to resolve missing binary error
+
 ## v0.0.13
 
 - chore: add golangci-lint v2 with `.golangci.yml` config and modernize Makefile with `.PHONY`, `lint`, `osv-scanner`, `gosec`, `trivy` targets
