@@ -8,6 +8,14 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.15
+
+- Update AWS SDK v2 dependencies (v1.41.4, credentials v1.19.12)
+- Update Docker/containerd/moby dependencies
+- Update OpenTelemetry to v1.40.0
+- Enable parallel golangci-lint runners
+- Clean up go.mod excludes and replace directives
+
 ## v0.0.14
 
 - fix: install trivy in CI workflow to resolve missing binary error
