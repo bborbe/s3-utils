@@ -8,6 +8,13 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.16
+
+- Update go version to 1.26.2
+- Bump aws/smithy-go to v1.24.3
+- Add vulnerability ignores for GHSA-xmrv-pmrh-hhx2 and CVE-2026-33817
+- Pin anthropic-sdk-go and diskfs/go-diskfs in replace directives
+
 ## v0.0.15
 
 - Update AWS SDK v2 dependencies (v1.41.4, credentials v1.19.12)

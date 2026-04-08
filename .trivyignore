@@ -1,3 +1,8 @@
 # github.com/docker/docker indirect dep, no fix available via Go modules
 CVE-2026-34040
 CVE-2026-33997
+
+# aws-sdk-go-v2 eventstream DoS, transitive
+GHSA-xmrv-pmrh-hhx2
+# bbolt index out-of-range, no fix available
+CVE-2026-33817

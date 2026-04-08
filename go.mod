@@ -1,8 +1,9 @@
 module github.com/bborbe/s3-utils
 
-go 1.26.1
+go 1.26.2
 
 replace (
+	github.com/anthropics/anthropic-sdk-go => github.com/anthropics/anthropic-sdk-go v1.26.0
 	github.com/aws/aws-sdk-go-v2 => github.com/aws/aws-sdk-go-v2 v1.21.0
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream => github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.4.10
 	github.com/aws/aws-sdk-go-v2/config => github.com/aws/aws-sdk-go-v2/config v1.18.39
@@ -23,6 +24,7 @@ replace (
 	github.com/aws/aws-sdk-go-v2/service/sts => github.com/aws/aws-sdk-go-v2/service/sts v1.21.5
 	github.com/charmbracelet/x/cellbuf => github.com/charmbracelet/x/cellbuf v0.0.15
 	github.com/denis-tingaikin/go-header => github.com/denis-tingaikin/go-header v0.5.0
+	github.com/diskfs/go-diskfs => github.com/diskfs/go-diskfs v1.7.0
 	github.com/nunnatsa/ginkgolinter/types => github.com/nunnatsa/ginkgolinter v0.19.1
 	github.com/opencontainers/runtime-spec => github.com/opencontainers/runtime-spec v1.2.0
 )
@@ -33,7 +35,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/credentials v1.19.12
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.22.0
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.96.0
-	github.com/aws/smithy-go v1.24.2
+	github.com/aws/smithy-go v1.24.3
 	github.com/bborbe/errors v1.5.3
 	github.com/bborbe/sentry v1.9.8
 	github.com/bborbe/service v1.9.3

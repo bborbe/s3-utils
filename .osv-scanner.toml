@@ -5,3 +5,7 @@ reason = "github.com/docker/docker indirect dep, no fix available"
 [[IgnoredVulns]]
 id = "GHSA-x744-4wpc-v9h2"
 reason = "github.com/docker/docker indirect dep, no fix available"
+
+[[IgnoredVulns]]
+id = "GHSA-xmrv-pmrh-hhx2"
+reason = "aws-sdk-go-v2 s3/eventstream, upgrade pending"
