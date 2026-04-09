@@ -8,6 +8,14 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.17
+
+- Update bborbe/* dependencies (errors, sentry, service, argument, collection, etc.)
+- Update golangci-lint to v2.11.4 with revised linter config (depguard, timeout 15m)
+- Update osv-scanner to v2.3.5, add new CVE ignores to .trivyignore and .osv-scanner.toml
+- Update numerous transitive dependencies (otel, prometheus, charmbracelet, google, etc.)
+- Improve vulncheck Makefile target to filter known-ignored vulnerabilities
+
 ## v0.0.16
 
 - Update go version to 1.26.2

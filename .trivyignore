@@ -2,7 +2,11 @@
 CVE-2026-34040
 CVE-2026-33997
 
-# aws-sdk-go-v2 eventstream DoS, transitive
-GHSA-xmrv-pmrh-hhx2
-# bbolt index out-of-range, no fix available
+# go.etcd.io/bbolt v1.4.3 dep, no fix available
 CVE-2026-33817
+
+# github.com/blevesearch/bleve v1.0.14, no fix available (bleve v1 EOL)
+CVE-2022-31022
+
+# aws-sdk-go-v2 s3/eventstream DoS, upgrade pending — BRO-20006
+GHSA-xmrv-pmrh-hhx2

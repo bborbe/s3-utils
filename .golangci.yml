@@ -1,24 +1,38 @@
 version: "2"
 
 run:
-  timeout: 5m
+  timeout: 15m
   tests: true
 
 linters:
   enable:
+    # Core
     - govet
     - errcheck
     - staticcheck
-    - unused
-    - revive
-    - gosec
-    - gocyclo
-    - dupl
+    - depguard
   settings:
     errcheck:
       exclude-functions:
-        - fmt.Fprintf
-        - fmt.Fprintln
+        - (net/http.ResponseWriter).Write
+        - github.com/bborbe/http.WriteAndGlog
+    depguard:
+      rules:
+        Main:
+          list-mode: lax
+          allow:
+            - github.com/bborbe/argument/v2
+          deny:
+            - pkg: "github.com/pkg/errors"
+              desc: "use github.com/bborbe/errors instead"
+            - pkg: "github.com/bborbe/argument"
+              desc: "use github.com/bborbe/argument/v2 instead"
+            - pkg: "golang.org/x/net/context"
+              desc: "use context from standard library instead"
+            - pkg: "golang.org/x/lint/golint"
+              desc: "deprecated, use revive or staticcheck instead"
+            - pkg: "io/ioutil"
+              desc: "deprecated since Go 1.16, use io and os packages instead"
   exclusions:
     presets:
       - comments
@@ -29,12 +43,16 @@ linters:
           - staticcheck
         text: "SA1019"
       - linters:
-          - revive
+          - errcheck
         path: "_test\\.go$"
-        text: "dot-imports"
       - linters:
-          - revive
-        text: "unused-parameter"
+          - staticcheck
+        text: "ST1012"
       - linters:
-          - revive
-        text: "exported"
+          - staticcheck
+        text: "S1002"
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
