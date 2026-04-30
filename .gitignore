@@ -9,5 +9,6 @@
 /list-buckets
 /list-objects
 /.dark-factory.lock
+/.dark-factory.log
 /prompts/log
 /specs/log
