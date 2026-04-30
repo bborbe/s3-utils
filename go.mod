@@ -38,7 +38,7 @@ require (
 	github.com/aws/smithy-go v1.24.3
 	github.com/bborbe/errors v1.5.11
 	github.com/bborbe/sentry v1.9.16
-	github.com/bborbe/service v1.9.9
+	github.com/bborbe/service v1.9.10
 	github.com/golang/glog v1.2.5
 	github.com/golangci/golangci-lint/v2 v2.11.4
 	github.com/google/addlicense v1.2.0
