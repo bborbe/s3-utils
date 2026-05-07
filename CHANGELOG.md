@@ -8,6 +8,13 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.19
+
+- bump go 1.26.2 → 1.26.3
+- bump aws-sdk-go-v2 v1.41.4 → v1.41.7 and related S3 packages
+- bump bborbe/errors v1.5.11 → v1.5.13, bborbe/sentry v1.9.16 → v1.9.17
+- bump getsentry/sentry-go v0.46.1 → v0.46.2
+
 ## v0.0.18
 
 - chore: Migrate to tools.env + Makefile @version pattern; remove tools.go and obsolete replace block. go.mod reduced from 483 to 58 lines.
