@@ -8,6 +8,14 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.20
+
+- bump Go to 1.26.4
+- bump aws-sdk-go-v2 and smithy-go
+- bump bborbe/service, sentry, and internal libs
+- bump golang.org/x/net and x/sys for vuln fixes
+- drop errcheck/gosec; improve vulncheck with ignore list
+
 ## v0.0.19
 
 - bump go 1.26.2 → 1.26.3
