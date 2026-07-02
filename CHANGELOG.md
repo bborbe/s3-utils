@@ -8,6 +8,12 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.21
+
+- bump aws-sdk-go-v2 (v1.41.11→v1.42.1), s3 (v1.103.1→v1.104.2), smithy-go (v1.27.0→v1.27.3)
+- bump ginkgo/v2 (v2.29.0→v2.32.0), gomega (v1.41.0→v1.42.1)
+- bump golang.org/x dependencies (net, sync, sys, text)
+
 ## v0.0.20
 
 - bump Go to 1.26.4
