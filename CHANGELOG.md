@@ -8,6 +8,12 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.22
+
+- Bump bborbe/errors, sentry, service deps
+- Bump bborbe/argument, math, run, time deps
+- Bump getsentry/sentry-go dep
+
 ## v0.0.21
 
 - bump aws-sdk-go-v2 (v1.41.11→v1.42.1), s3 (v1.103.1→v1.104.2), smithy-go (v1.27.0→v1.27.3)
