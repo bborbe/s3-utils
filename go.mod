@@ -1,16 +1,16 @@
 module github.com/bborbe/s3-utils
 
-go 1.26.4
+go 1.26.5
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.42.1
-	github.com/aws/aws-sdk-go-v2/credentials v1.19.26
-	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.22.30
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.104.2
+	github.com/aws/aws-sdk-go-v2/credentials v1.19.28
+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.22.32
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.105.0
 	github.com/aws/smithy-go v1.27.3
-	github.com/bborbe/errors v1.5.15
-	github.com/bborbe/sentry v1.9.20
-	github.com/bborbe/service v1.10.3
+	github.com/bborbe/errors v1.5.16
+	github.com/bborbe/sentry v1.9.22
+	github.com/bborbe/service v1.10.5
 	github.com/golang/glog v1.2.5
 	github.com/onsi/ginkgo/v2 v2.32.0
 	github.com/onsi/gomega v1.42.1
@@ -26,13 +26,13 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.9.23 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.30 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.19.31 // indirect
-	github.com/bborbe/argument/v2 v2.12.29 // indirect
-	github.com/bborbe/collection v1.20.12 // indirect
-	github.com/bborbe/math v1.3.11 // indirect
-	github.com/bborbe/parse v1.10.12 // indirect
-	github.com/bborbe/run v1.9.29 // indirect
-	github.com/bborbe/time v1.27.1 // indirect
-	github.com/bborbe/validation v1.4.13 // indirect
+	github.com/bborbe/argument/v2 v2.12.32 // indirect
+	github.com/bborbe/collection v1.20.16 // indirect
+	github.com/bborbe/math v1.3.12 // indirect
+	github.com/bborbe/parse v1.10.16 // indirect
+	github.com/bborbe/run v1.9.30 // indirect
+	github.com/bborbe/time v1.27.5 // indirect
+	github.com/bborbe/validation v1.4.16 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/getsentry/sentry-go v0.47.0 // indirect

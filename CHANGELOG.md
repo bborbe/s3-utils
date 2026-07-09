@@ -8,6 +8,12 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## v0.0.23
+
+- Bump go toolchain to 1.26.5
+- Update AWS SDK v2 (credentials, s3 manager, s3 service)
+- Update bborbe deps (errors, sentry, service, argument, collection, math, parse, run, time, validation)
+
 ## v0.0.22
 
 - Bump bborbe/errors, sentry, service deps
