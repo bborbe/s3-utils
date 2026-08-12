@@ -8,7 +8,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-## Unreleased
+## v0.0.26
 
 - fix: mask `SentryDSN` in the startup argument dump of all four commands (`download`, `list-buckets`, `list-objects`, `upload`). A Sentry DSN embeds a project key, and `S3SecretKey` in the same struct was already masked while the DSN was printed in full. Five sibling repos (`boltkv`, `cron`, `kafka-topic-reader`, `kafka-topic-backup`, `kafka-topic-mirror`) all mask it.
 
