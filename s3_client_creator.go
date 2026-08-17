@@ -23,6 +23,7 @@ func CreateS3Client(
 	return s3.New(
 		s3.Options{
 			UsePathStyle:     true,
+			Region:           "garage",
 			EndpointResolver: s3.EndpointResolverFromURL(s3Url.String()),
 			EndpointOptions: s3.EndpointResolverOptions{
 				DisableHTTPS: !strings.HasPrefix(s3Url.String(), "https://"),
