@@ -29,6 +29,7 @@ All commands share these common environment variables / flags:
 | `--s3-url` | `S3_URL` | URL of the S3 server |
 | `--s3-access-key` | `S3_ACCESS_KEY` | Access key |
 | `--s3-secret-key` | `S3_SECRET_KEY` | Secret key |
+| `--s3-region` | `S3_REGION` | Region for SigV4 signing (empty = SDK default) |
 
 ### download
 

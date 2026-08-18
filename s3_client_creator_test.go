@@ -31,8 +31,18 @@ var _ = Describe("CreateS3Client", func() {
 		Expect(client).NotTo(BeNil())
 	})
 
-	It("signs requests with region garage in the credential scope", func() {
+	It("leaves the region empty by default", func() {
 		client := s3utils.CreateS3Client("https://s3.example.com", "access", "secret")
+		Expect(client.Options().Region).To(Equal(""))
+	})
+
+	It("signs requests with region garage in the credential scope when WithRegion is set", func() {
+		client := s3utils.CreateS3Client(
+			"https://s3.example.com",
+			"access",
+			"secret",
+			s3utils.WithRegion("garage"),
+		)
 		presigner := s3.NewPresignClient(client)
 		req, err := presigner.PresignGetObject(context.Background(), &s3.GetObjectInput{
 			Bucket: aws.String("b"), Key: aws.String("k"),

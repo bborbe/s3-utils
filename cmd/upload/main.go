@@ -28,13 +28,14 @@ func main() {
 }
 
 type application struct {
-	Port         int           `required:"false" arg:"port"          env:"PORT"          usage:"port to listen"                        default:"9090"`
-	InitialDelay time.Duration `required:"false" arg:"initial-delay" env:"INITIAL_DELAY" usage:"initial time before processing starts" default:"1m"`
-	SentryDSN    string        `required:"false" arg:"sentry-dsn"    env:"SENTRY_DSN"    usage:"Sentry DSN"                                           display:"length"`
+	Port         int           `required:"false" arg:"port"          env:"PORT"          usage:"port to listen"                                    default:"9090"`
+	InitialDelay time.Duration `required:"false" arg:"initial-delay" env:"INITIAL_DELAY" usage:"initial time before processing starts"             default:"1m"`
+	SentryDSN    string        `required:"false" arg:"sentry-dsn"    env:"SENTRY_DSN"    usage:"Sentry DSN"                                                       display:"length"`
 	SentryProxy  string        `required:"false" arg:"sentry-proxy"  env:"SENTRY_PROXY"  usage:"Sentry Proxy"`
 	S3Url        string        `required:"true"  arg:"s3-url"        env:"S3_URL"        usage:"URL of S3 server"`
 	S3AccessKey  string        `required:"true"  arg:"s3-access-key" env:"S3_ACCESS_KEY" usage:"Access Key for S3 server"`
-	S3SecretKey  string        `required:"true"  arg:"s3-secret-key" env:"S3_SECRET_KEY" usage:"Secret Key for S3 server"                             display:"length"`
+	S3SecretKey  string        `required:"true"  arg:"s3-secret-key" env:"S3_SECRET_KEY" usage:"Secret Key for S3 server"                                         display:"length"`
+	S3Region     string        `required:"false" arg:"s3-region"     env:"S3_REGION"     usage:"S3 region for SigV4 signing (empty = SDK default)"`
 	BucketName   string        `required:"true"  arg:"bucket"        env:"BUCKET"        usage:"bucket to store backups in"`
 	KeyName      string        `required:"true"  arg:"key"           env:"KEY"           usage:"key to store backups in"`
 }
@@ -47,6 +48,7 @@ func (a *application) Run(
 		s3utils.URL(a.S3Url),
 		s3utils.AccessKey(a.S3AccessKey),
 		s3utils.SecretKey(a.S3SecretKey),
+		s3utils.WithRegion(a.S3Region),
 	)
 	uploader := manager.NewUploader(s3Client, func(u *manager.Uploader) {
 		u.PartSize = 5 * 1024 * 1024
