@@ -6,6 +6,7 @@ package main
 
 import (
 	"context"
+	stderrors "errors"
 	"os"
 	"sync"
 	"sync/atomic"
@@ -14,6 +15,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
+	"github.com/aws/aws-sdk-go-v2/service/s3/types"
+	"github.com/aws/smithy-go"
 	"github.com/bborbe/errors"
 	libsentry "github.com/bborbe/sentry"
 	"github.com/bborbe/service"
@@ -148,7 +151,17 @@ func copyObject(
 			Bucket: aws.String(dstBucket),
 			Key:    key,
 		})
-		if err == nil && head.ContentLength != nil && srcSize != nil &&
+		if err != nil {
+			// Only treat a definitive "not found" as absent; surface
+			// permission/server errors (403, 500) instead of silently
+			// re-copying, which would obscure the real problem.
+			var notFound *types.NotFound
+			var apiErr smithy.APIError
+			if !stderrors.As(err, &notFound) && !(stderrors.As(err, &apiErr) &&
+				(apiErr.ErrorCode() == "NotFound" || apiErr.ErrorCode() == "NoSuchKey")) {
+				return errors.Wrap(ctx, err, "head object failed")
+			}
+		} else if head.ContentLength != nil && srcSize != nil &&
 			*head.ContentLength == *srcSize {
 			glog.V(4).Infof("skip %s (already present, matching size)", *key)
 			return nil

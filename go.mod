@@ -11,6 +11,7 @@ require (
 	github.com/bborbe/errors v1.5.17
 	github.com/bborbe/sentry v1.9.24
 	github.com/bborbe/service v1.10.7
+	github.com/getsentry/sentry-go v0.48.0
 	github.com/golang/glog v1.2.5
 	github.com/onsi/ginkgo/v2 v2.32.1
 	github.com/onsi/gomega v1.42.1
@@ -35,7 +36,6 @@ require (
 	github.com/bborbe/validation v1.4.18 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/getsentry/sentry-go v0.48.0 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
@@ -56,6 +56,4 @@ require (
 	google.golang.org/protobuf v1.36.12 // indirect
 )
 
-exclude (
-	cloud.google.com/go v0.26.0
-)
+exclude cloud.google.com/go v0.26.0
