@@ -8,7 +8,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-## Unreleased
+## v0.2.0
 
 - test: Add functional `cmd/copy` suite — in-memory S3 stub covering copy, skip-existing (skip/overwrite), retry, HeadObject-error surfacing, and list-failure paths (7 specs)
 - fix: `cmd/copy` — `-skip-existing` now surfaces HeadObject errors (403/500) instead of treating every error as "object absent"; only definitive NotFound/NoSuchKey skips the copy
