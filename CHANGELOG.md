@@ -10,7 +10,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-- test: Add functional `cmd/copy` suite — in-memory S3 stub covering copy, skip-existing (skip/overwrite), retry, HeadObject-error surfacing, and list-failure paths (8 specs)
+- test: Add functional `cmd/copy` suite — in-memory S3 stub covering copy, skip-existing (skip/overwrite), retry, HeadObject-error surfacing, and list-failure paths (7 specs)
 - fix: `cmd/copy` — `-skip-existing` now surfaces HeadObject errors (403/500) instead of treating every error as "object absent"; only definitive NotFound/NoSuchKey skips the copy
 - fix: `cmd/copy` — data race on `copyErr` read (read outside mutex while goroutines write under lock); locked reader now used for loop-exit checks
 - feat: Add `cmd/copy` — copy all objects between two S3 endpoints with concurrent workers, per-object retry, and optional `-skip-existing` resume (skips objects already present with matching size)
