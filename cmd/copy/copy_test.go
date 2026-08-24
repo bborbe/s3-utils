@@ -26,11 +26,19 @@ import (
 // sentryStub satisfies the bborbe/sentry Client interface without network I/O.
 type sentryStub struct{}
 
-func (s sentryStub) CaptureMessage(string, *sentry.EventHint, sentry.EventModifier) *sentry.EventID {
+func (s sentryStub) CaptureMessage(
+	string,
+	*sentry.EventHint,
+	sentry.EventModifier,
+) *sentry.EventID {
 	return nil
 }
 
-func (s sentryStub) CaptureException(error, *sentry.EventHint, sentry.EventModifier) *sentry.EventID {
+func (s sentryStub) CaptureException(
+	error,
+	*sentry.EventHint,
+	sentry.EventModifier,
+) *sentry.EventID {
 	return nil
 }
 
@@ -44,14 +52,13 @@ func (s sentryStub) Close() error { return nil }
 // in failGet (simulating transient errors) and can force a HeadObject
 // status via headStatus.
 type s3Stub struct {
-	mu        sync.Mutex
-	objects   map[string][]byte
-	failGet   map[string]int
-	headCode  int
-	putCount  map[string]int
-	server    *httptest.Server
-	bucket    string
-	listEmpty bool
+	mu       sync.Mutex
+	objects  map[string][]byte
+	failGet  map[string]int
+	headCode int
+	putCount map[string]int
+	server   *httptest.Server
+	bucket   string
 }
 
 func newS3Stub(bucket string) *s3Stub {
@@ -133,8 +140,8 @@ func (s *s3Stub) handleList(w http.ResponseWriter) {
 		StorageClass string
 	}
 	type result struct {
-		XMLName     xml.Name  `xml:"ListBucketResult"`
-		Ns          string    `xml:"xmlns,attr"`
+		XMLName     xml.Name `xml:"ListBucketResult"`
+		Ns          string   `xml:"xmlns,attr"`
 		Name        string
 		IsTruncated bool
 		KeyCount    int
@@ -171,7 +178,11 @@ func (s *s3Stub) handleGet(w http.ResponseWriter, key string) {
 	data, ok := s.objects[key]
 	if !ok {
 		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte(`<?xml version="1.0"?><Error><Code>NoSuchKey</Code><Message>not found</Message></Error>`))
+		w.Write(
+			[]byte(
+				`<?xml version="1.0"?><Error><Code>NoSuchKey</Code><Message>not found</Message></Error>`,
+			),
+		)
 		return
 	}
 	w.Header().Set("Content-Length", strconv.Itoa(len(data)))
@@ -251,14 +262,16 @@ var _ = Describe("copy", func() {
 		defer src.close()
 		dst := newS3Stub("dst")
 		defer dst.close()
-		src.set("same", []byte("12345"))  // 5 bytes
+		src.set("same", []byte("12345")) // 5 bytes
 		src.set("new", []byte("new-data"))
 		dst.set("same", []byte("54321")) // same size (5 bytes), different content
 
 		Expect(runCopy(src, dst, true)).To(Succeed())
 		got, ok := dst.get("same")
 		Expect(ok).To(BeTrue())
-		Expect(string(got)).To(Equal("54321"), "matching-size object should be skipped, not overwritten")
+		Expect(
+			string(got),
+		).To(Equal("54321"), "matching-size object should be skipped, not overwritten")
 		Expect(dst.putCountFor("same")).To(Equal(0))
 		_, ok = dst.get("new")
 		Expect(ok).To(BeTrue(), "new object missing in destination")

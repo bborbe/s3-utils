@@ -135,6 +135,18 @@ func (a *application) Run(
 	return nil
 }
 
+// isNotFoundError reports whether the error is a definitive "object absent"
+// (S3 NotFound / NoSuchKey). Anything else (403, 500, network) is NOT absent.
+func isNotFoundError(err error) bool {
+	var notFound *types.NotFound
+	if stderrors.As(err, &notFound) {
+		return true
+	}
+	var apiErr smithy.APIError
+	return stderrors.As(err, &apiErr) &&
+		(apiErr.ErrorCode() == "NotFound" || apiErr.ErrorCode() == "NoSuchKey")
+}
+
 func copyObject(
 	ctx context.Context,
 	srcClient *s3.Client,
@@ -155,10 +167,7 @@ func copyObject(
 			// Only treat a definitive "not found" as absent; surface
 			// permission/server errors (403, 500) instead of silently
 			// re-copying, which would obscure the real problem.
-			var notFound *types.NotFound
-			var apiErr smithy.APIError
-			if !stderrors.As(err, &notFound) && !(stderrors.As(err, &apiErr) &&
-				(apiErr.ErrorCode() == "NotFound" || apiErr.ErrorCode() == "NoSuchKey")) {
+			if !isNotFoundError(err) {
 				return errors.Wrap(ctx, err, "head object failed")
 			}
 		} else if head.ContentLength != nil && srcSize != nil &&
