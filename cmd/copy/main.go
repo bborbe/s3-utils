@@ -77,6 +77,11 @@ func (a *application) Run(
 	var count int64
 	var copyErr error
 	var mu sync.Mutex
+	getCopyErr := func() error {
+		mu.Lock()
+		defer mu.Unlock()
+		return copyErr
+	}
 	for paginator.HasMorePages() {
 		output, err := paginator.NextPage(ctx)
 		if err != nil {
@@ -92,7 +97,7 @@ func (a *application) Run(
 				mu.Unlock()
 			default:
 			}
-			if copyErr != nil {
+			if getCopyErr() != nil {
 				break
 			}
 			sem <- struct{}{}
@@ -114,7 +119,7 @@ func (a *application) Run(
 				}
 			}(object.Key, object.Size)
 		}
-		if copyErr != nil {
+		if getCopyErr() != nil {
 			break
 		}
 	}

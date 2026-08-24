@@ -10,6 +10,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+- fix: `cmd/copy` — data race on `copyErr` read (read outside mutex while goroutines write under lock); locked reader now used for loop-exit checks
 - feat: Add `cmd/copy` — copy all objects between two S3 endpoints with concurrent workers, per-object retry, and optional `-skip-existing` resume (skips objects already present with matching size)
 
 ## v0.1.1
