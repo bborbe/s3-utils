@@ -33,12 +33,12 @@ type application struct {
 	SentryDSN      string        `required:"false" arg:"sentry-dsn"        env:"SENTRY_DSN"        usage:"Sentry DSN"                                                                        display:"length"`
 	SentryProxy    string        `required:"false" arg:"sentry-proxy"      env:"SENTRY_PROXY"      usage:"Sentry Proxy"`
 	SrcS3Url       string        `required:"true"  arg:"src-s3-url"        env:"SRC_S3_URL"        usage:"URL of source S3 server"`
-	SrcS3AccessKey string        `required:"true"  arg:"src-s3-access-key" env:"SRC_S3_ACCESS_KEY" usage:"Access Key for source S3 server"`
+	SrcS3AccessKey string        `required:"true"  arg:"src-s3-access-key" env:"SRC_S3_ACCESS_KEY" usage:"Access Key for source S3 server"                                                   display:"length"`
 	SrcS3SecretKey string        `required:"true"  arg:"src-s3-secret-key" env:"SRC_S3_SECRET_KEY" usage:"Secret Key for source S3 server"                                                   display:"length"`
 	SrcS3Region    string        `required:"false" arg:"src-s3-region"     env:"SRC_S3_REGION"     usage:"S3 region for SigV4 signing (empty = SDK default)"`
 	SrcBucket      string        `required:"true"  arg:"src-bucket"        env:"SRC_BUCKET"        usage:"source bucket"`
 	DstS3Url       string        `required:"true"  arg:"dst-s3-url"        env:"DST_S3_URL"        usage:"URL of destination S3 server"`
-	DstS3AccessKey string        `required:"true"  arg:"dst-s3-access-key" env:"DST_S3_ACCESS_KEY" usage:"Access Key for destination S3 server"`
+	DstS3AccessKey string        `required:"true"  arg:"dst-s3-access-key" env:"DST_S3_ACCESS_KEY" usage:"Access Key for destination S3 server"                                              display:"length"`
 	DstS3SecretKey string        `required:"true"  arg:"dst-s3-secret-key" env:"DST_S3_SECRET_KEY" usage:"Secret Key for destination S3 server"                                              display:"length"`
 	DstS3Region    string        `required:"false" arg:"dst-s3-region"     env:"DST_S3_REGION"     usage:"S3 region for SigV4 signing (empty = SDK default)"`
 	DstBucket      string        `required:"true"  arg:"dst-bucket"        env:"DST_BUCKET"        usage:"destination bucket"`
@@ -83,6 +83,15 @@ func (a *application) Run(
 			return errors.Wrap(ctx, err, "list objects failed")
 		}
 		for _, object := range output.Contents {
+			select {
+			case <-ctx.Done():
+				mu.Lock()
+				if copyErr == nil {
+					copyErr = ctx.Err()
+				}
+				mu.Unlock()
+			default:
+			}
 			if copyErr != nil {
 				break
 			}
@@ -146,7 +155,9 @@ func copyObject(
 		if lastErr == nil {
 			return nil
 		}
-		glog.V(2).Infof("copy %s failed (attempt %d/5): %v", *key, attempt, lastErr)
+		if attempt > 1 {
+			glog.V(2).Infof("copy %s failed (attempt %d/5): %v", *key, attempt, lastErr)
+		}
 		select {
 		case <-ctx.Done():
 			return errors.Wrap(ctx, ctx.Err(), "copy object cancelled")
