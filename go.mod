@@ -3,10 +3,10 @@ module github.com/bborbe/s3-utils
 go 1.27.0
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.45.0
-	github.com/aws/aws-sdk-go-v2/credentials v1.20.0
-	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.23.0
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.109.0
+	github.com/aws/aws-sdk-go-v2 v1.45.1
+	github.com/aws/aws-sdk-go-v2/credentials v1.20.2
+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.23.2
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.110.0
 	github.com/aws/smithy-go v1.28.1
 	github.com/bborbe/errors v1.6.0
 	github.com/bborbe/sentry v1.10.0
@@ -20,16 +20,16 @@ require (
 require (
 	github.com/Masterminds/semver/v3 v3.5.0 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.20 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.5.0 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.8.0 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/v4a v1.5.0 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.5.1 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.8.1 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/v4a v1.5.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.13.19 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.11.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.14.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.20.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.11.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.14.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.20.1 // indirect
 	github.com/bborbe/argument/v2 v2.13.1 // indirect
 	github.com/bborbe/collection v1.20.25 // indirect
-	github.com/bborbe/math v1.4.7 // indirect
+	github.com/bborbe/math v1.4.8 // indirect
 	github.com/bborbe/parse v1.11.0 // indirect
 	github.com/bborbe/run v1.10.1 // indirect
 	github.com/bborbe/time v1.27.11 // indirect
@@ -43,9 +43,9 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_golang v1.24.1 // indirect
-	github.com/prometheus/client_model v0.6.2 // indirect
-	github.com/prometheus/common v0.70.1 // indirect
-	github.com/prometheus/procfs v0.21.1 // indirect
+	github.com/prometheus/client_model v0.6.3 // indirect
+	github.com/prometheus/common v0.71.0 // indirect
+	github.com/prometheus/procfs v0.22.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	golang.org/x/mod v0.40.0 // indirect
 	golang.org/x/net v0.58.0 // indirect
