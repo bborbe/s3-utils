@@ -27,11 +27,11 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.11.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.14.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.20.1 // indirect
-	github.com/bborbe/argument/v2 v2.13.1 // indirect
+	github.com/bborbe/argument/v2 v2.13.2 // indirect
 	github.com/bborbe/collection v1.20.25 // indirect
 	github.com/bborbe/math v1.4.8 // indirect
 	github.com/bborbe/parse v1.11.0 // indirect
-	github.com/bborbe/run v1.10.1 // indirect
+	github.com/bborbe/run v1.10.2 // indirect
 	github.com/bborbe/time v1.27.11 // indirect
 	github.com/bborbe/validation v1.4.23 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
