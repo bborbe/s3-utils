@@ -8,6 +8,10 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## Unreleased
+
+- chore: update github.com/bborbe/sentry to v1.10.1, github.com/bborbe/service to v1.10.11, github.com/onsi/gomega to v1.43.0
+
 ## v0.2.3
 
 - chore: update github.com/aws/aws-sdk-go-v2 to v1.45.1, github.com/aws/aws-sdk-go-v2/credentials to v1.20.2, github.com/aws/aws-sdk-go-v2/feature/s3/manager to v1.23.2, github.com/aws/aws-sdk-go-v2/service/s3 to v1.110.0
