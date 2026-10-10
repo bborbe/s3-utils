@@ -1,3 +1,1 @@
-[[IgnoredVulns]]
-id = "GHSA-xmrv-pmrh-hhx2"
-reason = "aws-sdk-go-v2 s3/eventstream, upgrade pending"
+
