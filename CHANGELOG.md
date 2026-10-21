@@ -8,7 +8,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-## Unreleased
+## v0.2.10
 
 - chore: update Go to 1.27.3 and github.com/aws/aws-sdk-go-v2/feature/s3/manager to v1.23.15, github.com/aws/aws-sdk-go-v2/service/s3 to v1.114.4, github.com/aws/smithy-go to v1.28.6, github.com/bborbe/sentry to v1.10.5, github.com/bborbe/service to v1.11.1
 
