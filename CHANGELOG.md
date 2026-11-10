@@ -8,7 +8,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-## Unreleased
+## v0.2.12
 
 - chore: update github.com/aws/aws-sdk-go-v2 to v1.47.8, github.com/aws/aws-sdk-go-v2/credentials to v1.20.17, github.com/aws/aws-sdk-go-v2/feature/s3/manager to v1.23.23, github.com/aws/aws-sdk-go-v2/service/s3 to v1.114.9, github.com/aws/smithy-go to v1.28.9, github.com/bborbe/errors to v1.6.6, github.com/bborbe/sentry to v1.10.7, github.com/bborbe/service to v1.11.3, github.com/onsi/ginkgo/v2 to v2.34.0
 
