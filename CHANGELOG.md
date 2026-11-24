@@ -8,6 +8,10 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
+## Unreleased
+
+- chore: remove 18 stale vulnerability ignores (withdrawn advisory, module absent from go.mod, or version outside the affected range)
+
 ## v0.2.13
 
 - chore: update Go to 1.27.4 and github.com/aws/aws-sdk-go-v2 to v1.48.0, github.com/aws/aws-sdk-go-v2/credentials to v1.21.0, github.com/aws/aws-sdk-go-v2/feature/s3/manager to v1.23.24, github.com/aws/aws-sdk-go-v2/service/s3 to v1.114.10
