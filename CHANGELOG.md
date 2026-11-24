@@ -8,7 +8,7 @@ Please choose versions by [Semantic Versioning](http://semver.org/).
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-## Unreleased
+## v0.2.14
 
 - chore: remove 18 stale vulnerability ignores (withdrawn advisory, module absent from go.mod, or version outside the affected range)
 
